@@ -132,3 +132,11 @@ func Getwd() string {
 	wd, _ := os.Getwd()
 	return wd
 }
+
+// GetPath return absolute path if p is relative path
+func GetPath(p string) string {
+	if filepath.IsAbs(p) {
+		return p
+	}
+	return filepath.Join(Getwd(), p)
+}
